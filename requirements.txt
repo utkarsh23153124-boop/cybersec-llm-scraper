@@ -1,0 +1,15 @@
+# Core High-Performance Networking
+aiohttp>=3.9.0
+aiofiles>=23.2.0
+aiodns>=3.1.0
+requests>=2.31.0
+
+# Content Extraction & Clean Text Conversion
+trafilatura>=1.6.0
+beautifulsoup4>=4.12.0
+lxml>=4.9.0
+
+# CLI, Progress & System Utilities
+tqdm>=4.66.0
+rich>=13.7.0
+urllib3>=2.0.0

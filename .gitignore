@@ -1,0 +1,46 @@
+# ============================================================
+# Cybersecurity LLM Dataset Pipeline - .gitignore
+# ============================================================
+
+# Large dataset output files (never commit - these go on server)
+cybersec_dataset/
+
+# Crawler state database (machine-specific)
+*.db
+*.db-shm
+*.db-wal
+
+# Compiled Python files
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtual environments
+venv/
+.venv/
+env/
+.env/
+
+# Environment variable files
+.env
+*.env.local
+*.env.production
+
+# OS generated files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE / editor configs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Temporary & build files
+*.tmp
+*.temp
+dist/
+build/
+*.egg-info/
