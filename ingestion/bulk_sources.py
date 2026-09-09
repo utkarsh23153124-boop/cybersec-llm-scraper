@@ -214,6 +214,33 @@ class BulkIngestionEngine:
         console.print(f"[green]✓ Ingested {count} unique MITRE CAPEC attack patterns.[/green]")
         return count
 
+    async def ingest_owasp_api_security(self) -> int:
+        """Downloads and parses the OWASP API Security Top 10 GitHub repository.
+
+        Covers API-specific risks (BOLA, Broken Authentication, Excessive Data Exposure,
+        BFLA, Mass Assignment, Security Misconfiguration, Injection, Improper Asset
+        Management, Insufficient Logging & Monitoring, SSRF) with detailed attack
+        scenarios, prevention guides, and threat model documentation.
+        """
+        console.print("\n[bold yellow]─── Ingesting OWASP API Security Top 10 ───[/bold yellow]")
+        return await self.ingest_owasp_repository(
+            repo_name="API-Security",
+            zip_url="https://github.com/OWASP/API-Security/archive/refs/heads/master.zip",
+            topics=[
+                "OWASP API Security Top 10",
+                "API Security",
+                "Advanced API Security",
+                "Web API Penetration Testing",
+                "BOLA", "BFLA",
+                "Broken Object Level Authorization",
+                "Broken Function Level Authorization",
+                "Excessive Data Exposure", "Mass Assignment",
+                "Unrestricted Resource Consumption",
+                "SSRF", "Injection",
+                "CBBH", "eWPTX", "OSWE",
+            ]
+        )
+
     async def ingest_owasp_repository(self, repo_name: str, zip_url: str, topics: List[str]) -> int:
         """Downloads and unpacks an OWASP GitHub repository archive, converting markdown to JSONL."""
         console.print(f"\n[bold yellow]─── Ingesting {repo_name} ───[/bold yellow]")
@@ -257,6 +284,7 @@ class BulkIngestionEngine:
         total = 0
         total += await self.ingest_mitre_cwe()
         total += await self.ingest_mitre_capec()
+        total += await self.ingest_owasp_api_security()
         
         # OWASP WSTG
         total += await self.ingest_owasp_repository(

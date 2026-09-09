@@ -98,11 +98,20 @@ TARGET_TOPICS = [
     "OWASP Application Security Verification Standard", "ASVS",
     "OWASP Web Security Testing Guide", "WSTG",
     "OWASP Top 10",
+    "OWASP API Security Top 10",
+    "API Security", "Advanced API Security",
+    "Broken Object Level Authorization", "BOLA", "BFLA",
+    "Broken Function Level Authorization",
+    "Excessive Data Exposure", "Mass Assignment",
     "SANS SWAT", "Secure Web Application Technologies",
+    "SANS Top 25",
     "ISO/IEC 27034", "Application Security",
     "NIST Secure Software Development Framework", "SSDF",
     "MITRE CWE", "Common Weakness Enumeration",
     "MITRE CAPEC", "Common Attack Pattern Enumeration and Classification",
+    "CIS Controls", "CIS Benchmark", "CIS Control 16",
+    "PCI DSS", "Payment Card Industry Data Security Standard",
+    "PCI DSS v4", "PCI Compliance",
     "Web Application Threat Modeling",
     "Advanced Web Application Threat Modeling",
     "Authentication and Authorization Security",
@@ -111,10 +120,12 @@ TARGET_TOPICS = [
     "Advanced Web Application Security Engineering",
     "SQL Injection", "Cross-Site Scripting", "XSS", "CSRF", "SSRF",
     "Server-Side Request Forgery", "Insecure Deserialization", "IDOR",
-    "Broken Object Level Authorization", "BOLA", "JWT security", "OAuth security",
+    "JWT security", "OAuth security",
     "XML External Entity", "XXE", "Remote Code Execution", "RCE",
     "Prototype Pollution", "Race Conditions", "Business Logic Vulnerabilities",
-    "Path Traversal", "File Inclusion", "LFI", "RFI"
+    "Path Traversal", "File Inclusion", "LFI", "RFI",
+    "GraphQL Security", "WebSockets Security", "gRPC Security",
+    "Broken Authentication", "Security Misconfiguration", "Unrestricted Resource Consumption"
 ]
 
 # Combined normalized set for keyword scoring
@@ -154,6 +165,11 @@ BULK_DATA_FEEDS = {
         "name": "OWASP Top 10 Documentation",
         "git_url": "https://github.com/OWASP/Top10.git",
         "description": "Standard awareness document for web application developers and security analysts."
+    },
+    "owasp_api_security": {
+        "name": "OWASP API Security Top 10",
+        "git_url": "https://github.com/OWASP/API-Security.git",
+        "description": "OWASP Top 10 API Security Risks — attack scenarios, prevention, and threat model for API endpoints."
     },
     "nist_ssdf": {
         "name": "NIST Secure Software Development Framework (SP 800-218)",
@@ -207,7 +223,46 @@ CRAWLER_SEEDS = [
     "https://hackerone.com/hacktivity",
     "https://learn.microsoft.com/en-us/security/",
     "https://attack.mitre.org/matrices/enterprise/",
-    
+
+    # SANS – SWAT Checklist, Top 25, Course Overviews
+    "https://www.sans.org/top25-software-errors/",
+    "https://www.sans.org/security-awareness-training/resources/swat-checklist/",
+    "https://www.sans.org/cyber-security-courses/web-app-penetration-testing-ethical-hacking/",
+    "https://www.sans.org/cyber-security-courses/application-security-securing-web-apps-api-microservices/",
+
+    # GIAC Certification Pages (course syllabi & topic outlines)
+    "https://www.giac.org/certifications/web-application-penetration-tester-gwapt/",
+    "https://www.giac.org/certifications/web-application-defender-gweb/",
+
+    # CIS Controls – Control 16 (Application Software Security)
+    "https://www.cisecurity.org/controls/application-software-security",
+    "https://www.cisecurity.org/cis-benchmarks/",
+    "https://www.cisecurity.org/controls/v8",
+
+    # PCI DSS – Public Resources & Guidance Documents
+    "https://www.pcisecuritystandards.org/document_library",
+    "https://www.pcisecuritystandards.org/pci_security/",
+    "https://blog.pcisecuritystandards.org/",
+
+    # ISO/IEC 27034 – Public Excerpts and Application Security Resources
+    "https://www.iso.org/standard/44378.html",
+    "https://www.bsigroup.com/en-GB/iso-iec-27034-application-security/",
+
+    # OWASP Training, Projects & Educational Materials
+    "https://owasp.org/www-project-security-knowledge-framework/",
+    "https://owasp.org/www-project-vulnerable-web-applications-directory/",
+    "https://owasp.org/www-project-devsecops-guideline/",
+    "https://owasp.org/www-project-mobile-security-testing-guide/",
+    "https://owasp.org/www-project-api-security/",
+
+    # PentesterLab – Web Application Security Training
+    "https://pentesterlab.com/exercises",
+    "https://blog.pentesterlab.com/",
+
+    # APIsec University – API Security Education
+    "https://www.apisecuniversity.com/courses",
+    "https://www.apisecuniversity.com/api-security-fundamentals",
+
     # Certification Syllabi & Guides
     "https://www.offsec.com/courses/web-200/",
     "https://www.offsec.com/courses/web-300/",
@@ -234,5 +289,14 @@ ALLOWED_DOMAINS = [
     "offsec.com",
     "tcm-sec.com",
     "hackthebox.com",
-    "tryhackme.com"
+    "tryhackme.com",
+    # New: Standards bodies & training platforms
+    "sans.org",
+    "giac.org",
+    "cisecurity.org",
+    "pcisecuritystandards.org",
+    "blog.pcisecuritystandards.org",
+    "bsigroup.com",
+    "pentesterlab.com",
+    "apisecuniversity.com",
 ]
